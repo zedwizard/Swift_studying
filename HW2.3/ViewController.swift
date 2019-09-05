@@ -33,7 +33,21 @@ class ViewController: UIViewController {
         }
         print("Total account size would be: $\(round(depositAmount * 100) / 100)")
     }
-
+    //    Задача 2. Ежемесячная стипендия студента составляет 700 гривен, а расходы на проживание превышают ее и составляют 1000 грн. в месяц. Рост цен ежемесячно увеличивает расходы на 3%. Определить, какую нужно иметь сумму денег, чтобы прожить учебный год (10 месяцев), используя только эти деньги и стипендию.
+    func calcMoneyForStudent() -> Int {
+        let scholarship: Double = 700
+        var rentPerMonth: Double = 1000
+        let priceRisePercent: Double = 3
+        let monthQty = 10
+        var amountMoneyToSurvive: Double = 0
+        for _ in 0..<monthQty {
+            amountMoneyToSurvive += rentPerMonth - scholarship
+            rentPerMonth += (rentPerMonth * priceRisePercent) / 100
+        }
+        let roundedAmountMoneyToSurvive = Int(round(amountMoneyToSurvive * 100) / 100)
+        print("To survive one year student should be hungry and have \(roundedAmountMoneyToSurvive) hryvnas")
+        return(roundedAmountMoneyToSurvive)
+    }
 
 }
 
