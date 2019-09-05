@@ -72,7 +72,18 @@ class ViewController: UIViewController {
         } else {
             return nil
         }
-        
+    }
+    //    Задача 4. 2хзначную цело численную переменную типа 25, 41, 12. После выполнения вашей программы у вас в другой переменной должно лежать это же число только задом на перед 52, 14, 21
+    func rotateNumber(num: Int) -> Int {
+        var numArray = Array(String(num))
+        var rotatedNumArray = [String]()
+        var rotatedNum: Int
+        for i in (0..<numArray.count).reversed() {
+            rotatedNumArray.append(String(numArray[i]))
+        }
+        rotatedNum = Int(String(rotatedNumArray.joined(separator: ""))) ?? 0
+        print("If we rotate number \(num) we receive \(rotatedNum)")
+        return(rotatedNum)
     }
 }
 
