@@ -85,5 +85,6 @@ class ViewController: UIViewController {
         print("If we rotate number \(num) we receive \(rotatedNum)")
         return(rotatedNum)
     }
+    
 }
 
