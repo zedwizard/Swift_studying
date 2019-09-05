@@ -48,6 +48,31 @@ class ViewController: UIViewController {
         print("To survive one year student should be hungry and have \(roundedAmountMoneyToSurvive) hryvnas")
         return(roundedAmountMoneyToSurvive)
     }
-
+    //    Задача 3. У студента имеются накопления 2400 грн. Ежемесячная стипендия составляет 700 гривен, а расходы на проживание превышают ее и составляют 1000 грн. в месяц. Рост цен ежемесячно увеличивает расходы на 3%. Определить, сколько месяцев сможет прожить студент, используя только накопления и стипендию.
+    func calcMonthQtyStudentCanSurvive() -> Int? {
+        var savings: Double = 2400
+        let scholarship: Double = 700
+        var rentPerMonth: Double = 1000
+        let priceRisePercent: Double = 3
+        var monthQtyStudenCanSurvive: Int = 0
+        while savings >= rentPerMonth {
+            savings = savings - rentPerMonth + scholarship
+            rentPerMonth += (rentPerMonth * priceRisePercent) / 100
+            monthQtyStudenCanSurvive += 1
+        }
+        if monthQtyStudenCanSurvive == 1 {
+            print("Student can survive \(monthQtyStudenCanSurvive) month.")
+            return(monthQtyStudenCanSurvive)
+        } else if monthQtyStudenCanSurvive > 1 {
+            print("Student can survive \(monthQtyStudenCanSurvive) months")
+            return(monthQtyStudenCanSurvive)
+        } else if monthQtyStudenCanSurvive == 0 {
+            print("Student can't survive.")
+            return(monthQtyStudenCanSurvive)
+        } else {
+            return nil
+        }
+        
+    }
 }
 
